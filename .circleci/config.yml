@@ -18,7 +18,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync ~/RubeGoldberg s3://rubegoldberg082479.s3.amazonaws.com
+          command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com
 
 workflows:
   version: 2
