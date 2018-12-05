@@ -11,14 +11,14 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:2.7-jessie
-    working_directory: ~/repo
+    working_directory: RubeGoldberg
     steps:
       - run:
           name: Install awscli
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync ~repo s3://rubegoldberg082479.s3.amazonaws.com --delete
+          command: aws s3 sync RubeGoldberg s3://rubegoldberg082479.s3.amazonaws.com --delete
 
 workflows:
   version: 2
