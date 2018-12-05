@@ -1,33 +1,20 @@
 version: 2
 jobs:
   build:
+    working_directory: /tmp/rube
     docker:
       - image: circleci/python:2.7-jessie
     steps:
       - checkout
       - run:
             name: Test
-            command: echo "test"
-  deploy:
-    docker:
-      - image: circleci/python:2.7-jessie
-    # working_directory: ~/RubeGoldberg
-    steps:
+            command: echo "Deploying rube"
       - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: Deploy to S3
-          command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com
-
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
+           name: Install awscli
+           command: sudo pip install awscli
       - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+          name: Deploy to S3 if branch is Master.
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com --delete
+            fi
