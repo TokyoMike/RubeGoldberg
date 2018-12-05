@@ -18,7 +18,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync ~repo http://bucket.s3.us-east-2.amazonaws.com/rubegoldberg082479.s3.amazonaws.com --delete
+          command: aws s3 sync ~repo s3://rubegoldberg082479.s3.amazonaws.com --delete
 
 workflows:
   version: 2
