@@ -18,7 +18,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
+          command: aws s3 sync HelloWorld.py s3.us-east-2.amazonaws.com/rubegoldberg082479.s3.amazonaws.com --delete
 
 workflows:
   version: 2
