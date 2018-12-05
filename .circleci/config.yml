@@ -13,9 +13,9 @@ jobs:
            name: Install awscli
            command: sudo pip install awscli
       - deploy:
-          name: Create appication
-          #command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com --delete
-          command: aws deploy create-application --application-name HelloWorld_App
+           name: Create appication
+           #command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com --delete
+           command: aws deploy create-application --application-name HelloWorld_App
       - deploy:
-          name: Push application   
-          command: aws deploy push --application-name HelloWorld_App --s3-location s3://rubegoldberg082479.s3.amazonaws.com --ignore-hidden-files
+           name: Push application   
+           command: aws deploy push --application-name HelloWorld_App --s3-location s3://rubegoldberg082479.s3.amazonaws.com --ignore-hidden-files
