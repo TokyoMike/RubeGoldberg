@@ -14,4 +14,6 @@ jobs:
            command: sudo pip install awscli
       - deploy:
           name: Deploy to S3 if branch is Master.
-          command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com --delete
+          #command: aws s3 sync . s3://rubegoldberg082479.s3.amazonaws.com --delete
+          command: aws deploy create-application --application-name HelloWorld_App
+          command: aws deploy push --application-name HelloWorld_App --s3-location s3://rubegoldberg082479.s3.amazonaws.com --ignore-hidden-files
