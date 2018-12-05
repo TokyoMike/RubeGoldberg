@@ -11,7 +11,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/python:2.7-jessie
-    working_directory: ~/RubeGoldberg
+    # working_directory: ~/RubeGoldberg
     steps:
       - run:
           name: Install awscli
